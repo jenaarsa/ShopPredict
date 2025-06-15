@@ -339,47 +339,7 @@ function App() {
             </div>
           </div>
 
-          {/* Analysis Table */}
-          <div className="mb-16">
-            <h3 className="text-3xl font-bold text-slate-800 mb-8 text-center">
-              Análisis de Perfiles por Variables Categóricas
-            </h3>
-            <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-gradient-to-r from-slate-100 to-blue-100">
-                    <tr>
-                      <th className="px-6 py-4 text-left text-sm font-bold text-slate-700 uppercase tracking-wider">Clúster</th>
-                      <th className="px-6 py-4 text-left text-sm font-bold text-slate-700 uppercase tracking-wider">Perfil</th>
-                      <th className="px-6 py-4 text-left text-sm font-bold text-slate-700 uppercase tracking-wider">Conversión</th>
-                      <th className="px-6 py-4 text-left text-sm font-bold text-slate-700 uppercase tracking-wider">Características Clave</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-200">
-                    {clusters.map((cluster, index) => (
-                      <tr key={cluster.id} className={index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center space-x-3">
-                            <div className={`bg-gradient-to-r ${cluster.color} p-2 rounded-lg text-white`}>
-                              {cluster.icon}
-                            </div>
-                            <span className="font-semibold text-slate-800">{cluster.id}</span>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 font-medium text-slate-800">{cluster.profile}</td>
-                        <td className="px-6 py-4">
-                          <span className={`inline-flex px-3 py-1 rounded-full text-sm font-semibold ${cluster.bgColor} ${cluster.textColor}`}>
-                            {cluster.conversion}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 text-slate-600 text-sm">{cluster.characteristics}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+        
 
           {/* Strategic Segmentation */}
           <div>
