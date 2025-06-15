@@ -1,6 +1,6 @@
- {/* ESTE SI ES */}
+{/* ESTE SI ES */}
 import React, { useState } from 'react';
-import { BarChart3, Bot, ChevronDown, Send, Loader2, TrendingUp, Users, ShoppingCart, Target, Brain, Zap, AlertTriangle } from 'lucide-react';
+import { BarChart3, Bot, ChevronDown, Send, Loader2, TrendingUp, Users, ShoppingCart, Target, Brain, Zap, AlertTriangle, Star, Calendar } from 'lucide-react';
 
 function App() {
   const [chatInput, setChatInput] = useState('');
@@ -70,72 +70,95 @@ function App() {
       borderColor: "border-red-200",
       textColor: "text-red-800",
       icon: <Zap className="h-6 w-6" />,
-      conversion: "28.5%",
-      description: "Alta variabilidad e interacción. Usuarios comprometidos, mayor duración, más páginas y mayor valor generado.",
-      profile: "Compradores Activos",
-      characteristics: "+Interacción, −Rebote, −Salida"
+      conversion: "40.4%",
+      description: "Este grupo engloba a los usuarios con mayor compromiso dentro del sitio web. Se caracterizan por registrar una alta duración en la sesión (+7.9 desviaciones estándar), así como un elevado número de páginas de producto visitadas (+7.9). Además, presentan un nivel de compromiso sin precedentes (+68.3), lo cual sugiere un comportamiento intensivo de exploración y evaluación antes de la compra. Complementariamente, muestran una tasa de rebote (-0.36) y tasa de salida (-0.54) muy por debajo del promedio, lo que refuerza su perfil como usuarios altamente interesados.",
+      profile: "Compradores Premium",
+      characteristics: "Engagement extremo, +7.9σ páginas producto, +7.9σ tiempo sesión"
+    },
+    {
+      id: 4,
+      name: "Exploradores comprometidos",
+      color: "from-purple-400 to-purple-600",
+      bgColor: "bg-purple-50",
+      borderColor: "border-purple-200",
+      textColor: "text-purple-800",
+      icon: <Star className="h-6 w-6" />,
+      conversion: "27.9%",
+      description: "Aunque no tan intensos como los del clúster 3, los usuarios de este grupo también evidencian un alto nivel de interacción con el sitio. Tienen un tiempo de permanencia prolongado (+1.05) y una cantidad significativa de páginas visitadas, junto con tasas de rebote y salida bajas. Estos usuarios navegan a profundidad, probablemente comparando productos, lo que indica un interés real en convertir, aunque menos enfático que en el clúster anterior.",
+      profile: "Navegadores Profundos",
+      characteristics: "+1.05σ tiempo permanencia, tasas rebote/salida bajas"
     },
     {
       id: 1,
-      name: "Usuarios promedio",
+      name: "Usuario promedio",
       color: "from-orange-400 to-orange-600",
       bgColor: "bg-orange-50",
       borderColor: "border-orange-200",
       textColor: "text-orange-800",
       icon: <Users className="h-6 w-6" />,
-      conversion: "15.9%",
-      description: "Compacto, con comportamiento medio. Conversión por encima del promedio.",
+      conversion: "15.5%",
+      description: "Este clúster agrupa a los usuarios con un comportamiento medio en la plataforma. No presentan valores extremos en ninguna variable, pero destacan por tener tasas de rebote (-0.28) y salida (-0.24) ligeramente inferiores al promedio, lo que los convierte en un segmento receptivo. Aunque su compromiso es menor que el de los clústeres 3 y 4, estos usuarios sí exploran el sitio de forma moderada, lo que representa una oportunidad de optimización con incentivos dirigidos.",
       profile: "Exploradores Moderados",
-      characteristics: "Cerca del promedio, pero receptivos"
+      characteristics: "Comportamiento medio, -0.28σ rebote, -0.24σ salida"
     },
     {
       id: 0,
-      name: "Usuarios en días especiales",
+      name: "Visitantes de fechas especiales",
       color: "from-blue-400 to-blue-600",
       bgColor: "bg-blue-50",
       borderColor: "border-blue-200",
       textColor: "text-blue-800",
-      icon: <Target className="h-6 w-6" />,
+      icon: <Calendar className="h-6 w-6" />,
       conversion: "6.1%",
-      description: "Muy parecido al clúster 1, pero con mayor presencia en fechas clave.",
-      profile: "Visitantes Ocasionales",
-      characteristics: "Alta actividad en días especiales, bajo compromiso"
+      description: "Este grupo se distingue por su comportamiento sensible a las fechas clave. Aunque muestran una interacción general baja en el sitio, presentan una altísima puntuación en la variable is_special_day (+3.13), lo que indica que su actividad está concentrada en momentos puntuales como promociones, festividades o eventos. Sin embargo, esta actividad no se traduce con fuerza en conversiones, por lo cual podrían beneficiarse de campañas mejor dirigidas en esos periodos.",
+      profile: "Visitantes Estacionales",
+      characteristics: "+3.13σ días especiales, actividad concentrada en eventos"
     },
     {
       id: 2,
-      name: "Usuarios de rebote",
+      name: "Rebotadores",
       color: "from-green-400 to-green-600",
       bgColor: "bg-green-50",
       borderColor: "border-green-200",
       textColor: "text-green-800",
       icon: <AlertTriangle className="h-6 w-6" />,
       conversion: "0.6%",
-      description: "Patrón uniforme, baja interacción y tasa de conversión mínima.",
-      profile: "Rebotadores",
-      characteristics: "Tráfico irrelevante, rebote/salida muy altos"
+      description: "Este es el grupo con menor valor para la empresa. Muestran mínimos niveles de interacción (-0.66), tanto en páginas vistas como en tiempo de permanencia. Además, las tasas de rebote (+3.11) y salida (+2.91) son extremadamente altas, lo cual sugiere que abandonan el sitio casi de inmediato, sin explorar productos ni contenidos. El compromiso es prácticamente nulo, lo que los clasifica como tráfico no cualificado o incluso tóxico.",
+      profile: "Tráfico No Cualificado",
+      characteristics: "+3.11σ rebote, +2.91σ salida, -0.66σ interacción"
     }
   ];
 
   const strategies = [
     {
-      cluster: "Cluster 3: VIP Estambul/İzmir",
-      recommendation: "Eventos exclusivos en noviembre → pico de conversión.",
-      color: "bg-red-50 border-red-200 text-red-800"
+      cluster: "Segmentación Élite de Alto Engagement (Clúster 3 + Firefox + Estambul/İzmir + Noviembre)",
+      recommendation: "Crear eventos pop-up exclusivos en Estambul/İzmir durante noviembre con acceso prioritario para usuarios Firefox, ofreciendo previews de productos y 15% descuento en compras in situ.",
+      color: "bg-red-50 border-red-200 text-red-800",
+      details: "Conversión excepcional (40.4%) - Firefox dominante (90.4%), 98.1% visitantes recurrentes, pico en noviembre (33 sesiones)."
     },
     {
-      cluster: "Cluster 1: Firefox + diciembre/marzo",
-      recommendation: "Promociones estacionales → conversión potencial.",
-      color: "bg-orange-50 border-orange-200 text-orange-800"
+      cluster: "Segmentación de Alto Impacto Estacional (Clúster 4 + Firefox + Q4)",
+      recommendation: "Lanzar campañas estacionales con experiencias visuales avanzadas para Firefox en noviembre-diciembre, combinando ofertas segmentadas por región y remarketing con productos de alto engagement.",
+      color: "bg-purple-50 border-purple-200 text-purple-800",
+      details: "Alta conversión (27.9%) - Firefox líder (70.3%), picos en noviembre (633) y diciembre (226 sesiones)."
     },
     {
-      cluster: "Cluster 0: Visitantes de mayo (Estambul/Ankara)",
-      recommendation: "Retargeting post-evento en esas ciudades.",
-      color: "bg-blue-50 border-blue-200 text-blue-800"
+      cluster: "Segmentación de Reactivación Estacional (Clúster 0 + Firefox + Mayo)",
+      recommendation: "Campañas temáticas en mayo para Estambul/İzmir con ofertas 'Primera Impresión' (15% descuento + envío gratis) y contenido interactivo optimizado para Firefox.",
+      color: "bg-blue-50 border-blue-200 text-blue-800",
+      details: "Firefox predominante (66.0%), 95.1% recurrentes con baja conversión (6.1%), foco estacional en mayo (895 sesiones)."
     },
     {
-      cluster: "Cluster 2: Tráfico tóxico",
-      recommendation: "Depuración de fuentes (Syndication, navegadores obsoletos).",
-      color: "bg-green-50 border-green-200 text-green-800"
+      cluster: "Segmentación de visitantes sensibles a eventos (Clúster 2 + Depuración)",
+      recommendation: "Redirección automática a versión ligera para IE/Netscape, banner promocional 'Actualiza y recibe 10% OFF', pausa de inversión en fuentes tóxicas.",
+      color: "bg-green-50 border-green-200 text-green-800",
+      details: "Mínima conversión (0.6%) - Navegadores obsoletos, +3.11σ rebote, +2.91σ salida, 95.2% recurrentes sin conversión."
+    },
+    {
+      cluster: "Segmentación Masiva Estacional (Clúster 1 + Firefox + Eventos)",
+      recommendation: "Alertas personalizadas por ciudad, descuentos progresivos en noviembre ('Calendario Firefox Adviento'), competencias regionales con rankings en vivo.",
+      color: "bg-orange-50 border-orange-200 text-orange-800",
+      details: "Conversión media (15.5%) - Respuesta a eventos +3.13σ, Firefox dominante (63.7%), base nacional amplia."
     }
   ];
 
@@ -262,23 +285,24 @@ function App() {
             </p>
           </div>
 
-          {/* PCA Visualization */}
+          {/* t-SNE Visualization */}
           <div className="mb-16">
             <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-200">
               <h3 className="text-2xl font-bold text-slate-800 mb-6 text-center">
-                Visualización de Clústeres de Comportamiento (PCA)
+                Clusters de comportamiento (t-SNE)
               </h3>
               <div className="flex justify-center mb-8">
                 <img 
-                  src="/imagen_2025-06-14_163347012.png" 
-                  alt="Visualización PCA de clústeres de comportamiento"
+                  src="/image.png" 
+                  alt="Visualización t-SNE de clústeres de comportamiento"
                   className="max-w-full h-auto rounded-2xl shadow-lg border border-slate-200"
                 />
               </div>
               <p className="text-slate-600 text-center max-w-4xl mx-auto leading-relaxed">
-                En esta visualización se proyectaron sesiones de usuario usando Análisis de Componentes Principales (PCA). 
+                En esta visualización se proyectaron sesiones de usuario usando t-SNE (t-Distributed Stochastic Neighbor Embedding). 
                 Cada punto representa una sesión y el color indica a qué clúster fue asignado por el algoritmo K-Means. 
-                Se observa un grupo claramente dominante (clúster rojo) y otros más compactos y homogéneos.
+                La técnica t-SNE permite una mejor separación visual de los grupos, revelando la estructura natural de los datos 
+                y las diferencias comportamentales entre los distintos tipos de usuarios.
               </p>
             </div>
           </div>
@@ -286,9 +310,9 @@ function App() {
           {/* Cluster Distribution */}
           <div className="mb-16">
             <h3 className="text-3xl font-bold text-slate-800 mb-8 text-center">
-              Distribución Visual y Descripción de Clústeres
+              Visualización y Descripción de Clústeres
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {clusters.map((cluster) => (
                 <div key={cluster.id} className={`${cluster.bgColor} ${cluster.borderColor} border-2 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300`}>
                   <div className="flex items-center space-x-4 mb-6">
@@ -304,9 +328,12 @@ function App() {
                       </div>
                     </div>
                   </div>
-                  <p className={`${cluster.textColor} leading-relaxed`}>
+                  <p className={`${cluster.textColor} leading-relaxed mb-4`}>
                     {cluster.description}
                   </p>
+                  <div className={`text-sm font-semibold ${cluster.textColor} opacity-80`}>
+                    {cluster.characteristics}
+                  </div>
                 </div>
               ))}
             </div>
@@ -345,7 +372,7 @@ function App() {
                             {cluster.conversion}
                           </span>
                         </td>
-                        <td className="px-6 py-4 text-slate-600">{cluster.characteristics}</td>
+                        <td className="px-6 py-4 text-slate-600 text-sm">{cluster.characteristics}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -359,11 +386,14 @@ function App() {
             <h3 className="text-3xl font-bold text-slate-800 mb-8 text-center">
               Propuesta de Segmentación Estratégica
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-8">
               {strategies.map((strategy, index) => (
-                <div key={index} className={`${strategy.color} border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300`}>
-                  <h4 className="font-bold text-lg mb-3">{strategy.cluster}</h4>
-                  <p className="leading-relaxed">{strategy.recommendation}</p>
+                <div key={index} className={`${strategy.color} border-2 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300`}>
+                  <h4 className="font-bold text-xl mb-4">{strategy.cluster}</h4>
+                  <p className="leading-relaxed mb-4 text-lg">{strategy.recommendation}</p>
+                  <div className="text-sm opacity-80 font-medium">
+                    {strategy.details}
+                  </div>
                 </div>
               ))}
             </div>
