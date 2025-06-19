@@ -435,7 +435,9 @@ function App() {
                 {[
                   "Dime si un cliente va a comprar. Tiene los siguientes datos: el visitante entró en octubre, utiliza el navegador Firefox y el sistema operativo Windows. Además, visitó 5 páginas informativas con una duración de 60 segundos.",
                   "Dime si un cliente va a comprar. Este tiene los siguientes datos: el usuario visitó la página en octubre, en un fin de semana; accedió a 5 páginas informativas, 10 páginas administrativas, y duró 10 segundos en cada una de ellas.",
-                  "Dime si un cliente con las siguiente características va a comprar: el visitante entró en enero, utiliza el navegador Chrome y el sistema operativo Linux. Además, visitó 1 páginas informativas con una duración de 5 segundos."
+                  "Dime si un cliente con las siguiente características va a comprar: el visitante entró en enero, utiliza el navegador Chrome y el sistema operativo Linux. Además, visitó 1 páginas informativas con una duración de 5 segundos.",
+                   "Cuál es la descripción de las variables salidas de la pagina por el usuario, regiones, el valor de una pagina, tipo de pagina del producto?"
+       
                 ].map((example, index) => (
                   <button
                     key={index}
