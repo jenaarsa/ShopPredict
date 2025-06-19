@@ -1,6 +1,6 @@
 {/* ESTE SI ES */}
 import React, { useState } from 'react';
-import { BarChart3, Bot, ChevronDown, Send, Loader2, TrendingUp, Users, ShoppingCart, Target, Brain, Zap, AlertTriangle, Star, Calendar } from 'lucide-react';
+import { BarChart3, Bot, ChevronDown, Send, Loader2, TrendingUp, Users, ShoppingCart, Target, Brain, Zap, AlertTriangle, Star, Calendar, HelpCircle, Database } from 'lucide-react';
 
 function App() {
   const [chatInput, setChatInput] = useState('');
@@ -159,6 +159,28 @@ function App() {
       recommendation: "Alertas personalizadas por ciudad, descuentos progresivos en noviembre ('Calendario Firefox Adviento'), competencias regionales con rankings en vivo.",
       color: "bg-orange-50 border-orange-200 text-orange-800",
       details: "Conversión media (15.5%) - Respuesta a eventos +3.13σ, Firefox dominante (63.7%), base nacional amplia."
+    }
+  ];
+
+  // Categorías de ejemplos de consultas
+  const queryCategories = [
+    {
+      title: "📊 Información sobre Variables",
+      icon: <Database className="h-5 w-5" />,
+      color: "bg-blue-50 border-blue-200 text-blue-800",
+      queries: [
+        "¿Cuál es la descripción de las variables de salida de la página por el usuario, regiones, el valor de una página, tipo de página del producto?"
+      ]
+    },
+    {
+      title: "🎯 Predicciones de Compra",
+      icon: <Target className="h-5 w-5" />,
+      color: "bg-emerald-50 border-emerald-200 text-emerald-800",
+      queries: [
+        "Dime si un cliente va a comprar. Tiene los siguientes datos: el visitante entró en octubre, utiliza el navegador Firefox y el sistema operativo Windows. Además, visitó 5 páginas informativas con una duración de 60 segundos.",
+        "Dime si un cliente va a comprar. Este tiene los siguientes datos: el usuario visitó la página en octubre, en un fin de semana; accedió a 5 páginas informativas, 10 páginas administrativas, y duró 10 segundos en cada una de ellas.",
+        "Dime si un cliente con las siguiente características va a comprar: el visitante entró en enero, utiliza el navegador Chrome y el sistema operativo Linux. Además, visitó 1 páginas informativas con una duración de 5 segundos."
+      ]
     }
   ];
 
@@ -428,26 +450,37 @@ function App() {
               </div>
             )}
 
-            {/* Example Queries */}
-            <div className="mt-8 p-6 bg-slate-50 rounded-2xl border border-slate-200">
-              <h3 className="text-lg font-semibold text-slate-800 mb-4">Ejemplos de consultas:</h3>
-              <div className="space-y-2">
-                {[
-                  "Dime si un cliente va a comprar. Tiene los siguientes datos: el visitante entró en octubre, utiliza el navegador Firefox y el sistema operativo Windows. Además, visitó 5 páginas informativas con una duración de 60 segundos.",
-                  "Dime si un cliente va a comprar. Este tiene los siguientes datos: el usuario visitó la página en octubre, en un fin de semana; accedió a 5 páginas informativas, 10 páginas administrativas, y duró 10 segundos en cada una de ellas.",
-                  "Dime si un cliente con las siguiente características va a comprar: el visitante entró en enero, utiliza el navegador Chrome y el sistema operativo Linux. Además, visitó 1 páginas informativas con una duración de 5 segundos.",
-                   "Cuál es la descripción de las variables salidas de la pagina por el usuario, regiones, el valor de una pagina, tipo de pagina del producto?"
-       
-                ].map((example, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setChatInput(example)}
-                    className="block w-full text-left p-3 bg-white hover:bg-blue-50 rounded-lg text-slate-600 hover:text-blue-700 transition-colors text-sm border border-slate-200 hover:border-blue-200"
-                  >
-                    "{example}"
-                  </button>
-                ))}
-              </div>
+            {/* Enhanced Example Queries with Categories */}
+            <div className="mt-8 space-y-6">
+              <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center space-x-2">
+                <HelpCircle className="h-5 w-5 text-blue-600" />
+                <span>Ejemplos de consultas por categoría:</span>
+              </h3>
+              
+              {queryCategories.map((category, categoryIndex) => (
+                <div key={categoryIndex} className={`${category.color} border-2 rounded-2xl p-6 shadow-lg`}>
+                  <div className="flex items-center space-x-2 mb-4">
+                    {category.icon}
+                    <h4 className="font-bold text-lg">{category.title}</h4>
+                  </div>
+                  <div className="space-y-2">
+                    {category.queries.map((query, queryIndex) => (
+                      <button
+                        key={queryIndex}
+                        onClick={() => setChatInput(query)}
+                        className="block w-full text-left p-4 bg-white/70 hover:bg-white rounded-xl transition-all duration-200 text-sm border border-white/50 hover:border-white hover:shadow-md transform hover:scale-[1.02]"
+                      >
+                        <div className="flex items-start space-x-2">
+                          <span className="text-xs bg-white/80 px-2 py-1 rounded-full font-medium mt-0.5 flex-shrink-0">
+                            Ejemplo {queryIndex + 1}
+                          </span>
+                          <span className="leading-relaxed">"{query}"</span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
