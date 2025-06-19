@@ -165,15 +165,15 @@ function App() {
   // Categorías de ejemplos de consultas
   const queryCategories = [
     {
-      title: "📊 Información sobre Variables",
+      title: "Información sobre Variables",
       icon: <Database className="h-5 w-5" />,
       color: "bg-blue-50 border-blue-200 text-blue-800",
       queries: [
-        "¿Cuál es la descripción de las variables de salida de la página por el usuario, regiones, el valor de una página, tipo de página del producto?"
+        "¿Cuál es la descripción de las variables salidas de la pagina por el usuario, regiones, el valor de una pagina, tipo de pagina del producto?"
       ]
     },
     {
-      title: "🎯 Predicciones de Compra",
+      title: "Predicciones de Compra",
       icon: <Target className="h-5 w-5" />,
       color: "bg-emerald-50 border-emerald-200 text-emerald-800",
       queries: [
